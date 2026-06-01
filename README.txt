@@ -7,8 +7,8 @@ A fast, fully static Bootstrap 5 website. No build step, no
 database, no server-side code. Upload to cPanel and it works.
 
 Company details already filled in:
-  Phone:    +260 977 778 465  /  +260 954 711 297
-  WhatsApp: +260 977 778 465  (wa.me/260977778465)
+  Phone:    +260 964 252 876
+  WhatsApp: +260 964 252 876  (wa.me/260964252876)
   Email:    info@siamsrb.com
   Address:  Plot 32, Great North Road, S.O.S, Lusaka, Zambia
 
