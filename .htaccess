@@ -1,0 +1,12 @@
+# ===== Siams RB — Apache config for cPanel =====
+
+# Custom error page
+ErrorDocument 404 /404.html
+
+# Default document
+DirectoryIndex index.html
+
+# (Optional, recommended after SSL is enabled) Force HTTPS:
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]

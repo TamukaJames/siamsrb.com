@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /img/concept/
+
+Sitemap: https://siamsrb.com/sitemap.xml

@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIAMS RB — Website Master Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ice: #E8F5EF;
+    --steel: #0E1F14;
+    --electric: #2A9E5E;       /* Logo Emerald Green */
+    --volt: #1E5FAD;           /* Logo Royal Blue */
+    --cold: #6ECFA0;           /* Light green tint */
+    --dark: #091A10;           /* Very dark green-black */
+    --mid: #163D25;
+    --light: #F4FAF7;
+    --accent: #F4C430;         /* Royal Blue as accent */
+    --blue: #1E5FAD;           /* Logo Blue */
+    --green: #2A9E5E;          /* Logo Green */
+    --green-light: #34C174;    /* Lighter green for hover */
+    --blue-light: #2B72CC;     /* Lighter blue for hover */
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: #FFFFFF;
+    color: #1A2E20;
+    line-height: 1.6;
+  }
+
+  /* COVER */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0d2a18 0%, #0e3320 50%, #143d28 100%);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 60px,
+      rgba(42,158,94,0.05) 60px, rgba(42,158,94,0.05) 61px
+    ),
+    repeating-linear-gradient(
+      90deg, transparent, transparent 60px,
+      rgba(42,158,94,0.05) 60px, rgba(42,158,94,0.05) 61px
+    );
+  }
+  .cover-badge {
+    background: var(--green);
+    color: var(--dark);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 2px;
+    margin-bottom: 32px;
+  }
+  .cover h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(60px, 10vw, 120px);
+    letter-spacing: 6px;
+    line-height: 0.9;
+    color: white;
+    margin-bottom: 12px;
+  }
+  .cover h1 span { color: var(--electric); }
+  .cover-sub {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--cold);
+    margin-bottom: 40px;
+  }
+  .cover-divider {
+    width: 80px; height: 3px;
+    background: linear-gradient(90deg, var(--green), var(--blue));
+    margin: 0 auto 40px;
+  }
+  .cover-desc {
+    max-width: 600px;
+    font-size: 16px;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+  }
+  .cover-stats {
+    display: flex; gap: 60px;
+    margin-top: 60px;
+    flex-wrap: wrap; justify-content: center;
+  }
+  .cover-stat { text-align: center; }
+  .cover-stat .num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--blue);
+    line-height: 1;
+  }
+  .cover-stat .lbl {
+    font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* SECTIONS */
+  .section {
+    padding: 80px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(42,158,94,0.4), transparent);
+    margin: 0 40px;
+  }
+
+  /* SECTION HEADER */
+  .section-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 60px);
+    letter-spacing: 3px;
+    color: #1A2E20;
+    margin-bottom: 8px;
+  }
+  .section-title span { color: var(--electric); }
+  .section-intro {
+    font-size: 15px;
+    color: #5A6E62;
+    font-weight: 300;
+    max-width: 640px;
+    margin-bottom: 48px;
+    line-height: 1.8;
+  }
+
+  /* BRAND COLORS */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .color-swatch {
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .swatch-block {
+    height: 100px;
+  }
+  .swatch-info {
+    background: #F8F8F8;
+    padding: 14px;
+    border: 1px solid #E8E8E8;
+    border-top: none;
+  }
+  .swatch-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #1A2E20;
+  }
+  .swatch-hex {
+    font-size: 11px;
+    color: #888;
+    margin-top: 2px;
+  }
+  .swatch-use {
+    font-size: 11px;
+    color: #777;
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  /* TYPE SHOWCASE */
+  .type-showcase { margin-bottom: 20px; }
+  .type-item {
+    padding: 24px;
+    background: #F8FCF9;
+    border: 1px solid rgba(42,158,94,0.15);
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+  .type-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 8px;
+  }
+
+  /* PAGES GRID */
+  .pages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .page-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(42,158,94,0.25);
+    border-radius: 6px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+  .page-card:hover { border-color: var(--green); box-shadow: 0 4px 24px rgba(42,158,94,0.15); }
+  .page-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--green), var(--blue));
+  }
+  .page-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: rgba(42,158,94,0.15);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .page-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #1A2E20;
+    margin-bottom: 12px;
+  }
+  .page-desc {
+    font-size: 13px;
+    color: #5A6E62;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .page-sections {
+    list-style: none;
+  }
+  .page-sections li {
+    font-size: 12px;
+    color: #6B7E73;
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .page-sections li::before {
+    content: '→';
+    color: var(--green);
+    font-size: 10px;
+  }
+
+  /* SECTIONS TABLE */
+  .hero-section-breakdown {
+    display: grid;
+    gap: 16px;
+  }
+  .breakdown-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 20px;
+    padding: 20px;
+    background: #F8FCF9;
+    border: 1px solid rgba(42,158,94,0.15);
+    border-radius: 4px;
+    align-items: start;
+  }
+  .breakdown-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--blue);
+  }
+  .breakdown-detail {
+    font-size: 13px;
+    color: #4A5E52;
+    line-height: 1.7;
+  }
+  .breakdown-detail strong {
+    color: white;
+    font-weight: 600;
+  }
+
+  /* FEATURES */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .feature-card {
+    padding: 28px;
+    background: #FFFFFF;
+    border: 1px solid rgba(42,158,94,0.15);
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  }
+  .feature-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+  .feature-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #1A2E20;
+    margin-bottom: 10px;
+  }
+  .feature-desc {
+    font-size: 13px;
+    color: #5A6E62;
+    line-height: 1.7;
+  }
+
+  /* CONTENT MATRIX */
+  .content-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .content-table th {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--green);
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid rgba(42,158,94,0.3);
+  }
+  .content-table td {
+    padding: 12px 16px;
+    color: #4A5E52;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .content-table tr:hover td { background: #F5FAF7; }
+  .content-table td:first-child { color: #1A2E20; font-weight: 600; }
+
+  /* CTA PILL */
+  .tag-pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 2px;
+  }
+  .tag-must { background: rgba(30,95,173,0.2); color: var(--blue); border: 1px solid rgba(30,95,173,0.3); }
+  .tag-nice { background: rgba(42,158,94,0.15); color: var(--cold); border: 1px solid rgba(42,158,94,0.2); }
+
+  /* VISUAL DIRECTION */
+  .visual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .visual-card {
+    padding: 28px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .visual-card.dark-bg { background: #0D1B2A; }
+  .visual-card.light-bg { background: #E8F4FD; color: var(--dark); }
+  .visual-card.electric-bg { background: #00B4D8; color: var(--dark); }
+  .visual-card.volt-bg { background: #F4C430; color: var(--dark); }
+  .visual-card-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 12px;
+  }
+
+  /* MOOD MOCKUP */
+  .mockup-hero {
+    background: #FFFFFF;
+    border: 1px solid rgba(42,158,94,0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .mockup-nav {
+    background: rgba(30,95,173,0.08);
+    border-bottom: 1px solid rgba(30,95,173,0.2);
+    padding: 14px 24px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .mockup-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: white;
+    letter-spacing: 3px;
+  }
+  .mockup-logo span { color: var(--electric); }
+  .mockup-nav-links {
+    display: flex; gap: 20px; margin-left: auto;
+  }
+  .mockup-nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+  }
+  .mockup-hero-body {
+    padding: 60px 40px;
+    background: linear-gradient(135deg, #0D1B2A 0%, #0a2540 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .mockup-hero-body::before {
+    content: '❄';
+    position: absolute; right: 40px; top: 20px;
+    font-size: 120px; opacity: 0.04;
+  }
+  .mockup-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 16px;
+  }
+  .mockup-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px; letter-spacing: 4px;
+    line-height: 1; color: white;
+    margin-bottom: 20px;
+  }
+  .mockup-headline span { color: var(--electric); }
+  .mockup-p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    max-width: 400px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+    font-weight: 300;
+  }
+  .mockup-btns { display: flex; gap: 12px; }
+  .mockup-btn-primary {
+    background: var(--green);
+    color: var(--dark);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .mockup-btn-outline {
+    background: transparent;
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .mockup-ticker {
+    background: var(--green);
+    padding: 10px 24px;
+    display: flex; gap: 40px; align-items: center;
+    overflow: hidden;
+  }
+  .mockup-ticker-item {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px; letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--dark); font-weight: 700;
+    white-space: nowrap;
+  }
+  .mockup-ticker-dot {
+    width: 4px; height: 4px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 50%;
+  }
+
+  /* SERVICES PREVIEW */
+  .services-preview {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid rgba(42,158,94,0.25);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+  .svc-cell {
+    padding: 28px 20px;
+    background: #FAFCFB;
+    border-right: 1px solid rgba(42,158,94,0.15);
+    text-align: center;
+  }
+  .svc-cell:last-child { border-right: none; }
+  .svc-icon { font-size: 28px; margin-bottom: 12px; }
+  .svc-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #1A2E20;
+  }
+
+  /* FOOTER */
+  .plan-footer {
+    background: rgba(42,158,94,0.05);
+    border-top: 1px solid rgba(42,158,94,0.2);
+    padding: 48px 40px;
+    text-align: center;
+  }
+  .plan-footer-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px; letter-spacing: 4px;
+    color: #FFFFFF; margin-bottom: 12px;
+  }
+  .plan-footer-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+  }
+
+  @media (max-width: 700px) {
+    .breakdown-item { grid-template-columns: 1fr; }
+    .visual-grid { grid-template-columns: 1fr; }
+    .services-preview { grid-template-columns: repeat(2, 1fr); }
+    .mockup-nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-badge">Website Master Plan — 2025</div>
+  <h1>SIAMS <span>RB</span></h1>
+  <div class="cover-sub">Engineering &amp; Refrigeration · Lusaka, Zambia</div>
+  <div class="cover-divider"></div>
+  <p class="cover-desc">A complete blueprint for a world-class website — covering brand identity, page architecture, content strategy, visual direction, and features.</p>
+  <div class="cover-stats">
+    <div class="cover-stat"><div class="num">7</div><div class="lbl">Pages</div></div>
+    <div class="cover-stat"><div class="num">10+</div><div class="lbl">Years Experience</div></div>
+    <div class="cover-stat"><div class="num">5</div><div class="lbl">Cities Served</div></div>
+    <div class="cover-stat"><div class="num">4</div><div class="lbl">Core Services</div></div>
+  </div>
+</div>
+
+<!-- 01 BRAND IDENTITY -->
+<div class="section">
+  <div class="section-tag">01 — Brand Identity</div>
+  <h2 class="section-title">COLOR <span>PALETTE</span></h2>
+  <p class="section-intro">Built from the actual Siams RB logo. Deep green anchors the brand identity; royal blue communicates trust and professionalism; white delivers clean contrast and readability.</p>
+
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#0D1B2A;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Deep Steel</div>
+        <div class="swatch-hex">#0D1B2A</div>
+        <div class="swatch-use">Primary background, headers</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#2A9E5E;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Logo Green</div>
+        <div class="swatch-hex">##2A9E5E</div>
+        <div class="swatch-use">Primary accent, CTAs, highlights</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#1E5FAD;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Logo Blue</div>
+        <div class="swatch-hex">#1E5FAD</div>
+        <div class="swatch-use">Navigation, secondary accents, CTA</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#F4C430;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Voltage Gold</div>
+        <div class="swatch-hex">#F4C430</div>
+        <div class="swatch-use">Urgency, warnings, numbers</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#E8F4FD;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Frost White</div>
+        <div class="swatch-hex">#E8F4FD</div>
+        <div class="swatch-use">Text on dark, light sections</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#F4C430;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Caution Yellow</div>
+        <div class="swatch-hex">#F4C430</div>
+        <div class="swatch-use">Emergency callout, warning badges</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-tag" style="margin-top:48px;">Typography</div>
+  <h2 class="section-title" style="font-size:36px;">TYPE <span>SYSTEM</span></h2>
+
+  <div class="type-showcase">
+    <div class="type-item">
+      <div class="type-label">Display Font — Bebas Neue (Headlines, Logo)</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:4px;color:#1A2E20;">KEEPING ZAMBIA COOL</div>
+    </div>
+    <div class="type-item">
+      <div class="type-label">Condensed Font — Barlow Condensed (Navigation, Labels, Buttons)</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;letter-spacing:3px;text-transform:uppercase;color:var(--electric);">Refrigeration · Electrical · HVAC · Engineering</div>
+    </div>
+    <div class="type-item">
+      <div class="type-label">Body Font — Barlow (Paragraphs, Descriptions)</div>
+      <div style="font-family:'Barlow',sans-serif;font-size:15px;color:rgba(255,255,255,0.7);font-weight:300;line-height:1.8;max-width:600px;">SIAMS RB Engineering &amp; Refrigeration has over 10 years of extensive experience across Zambia in both domestic and commercial refrigeration, electrical works, HVAC, and construction — delivering quality you can trust.</div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- 02 HERO MOCKUP -->
+<div class="section">
+  <div class="section-tag">02 — Visual Direction</div>
+  <h2 class="section-title">HERO <span>CONCEPT</span></h2>
+  <p class="section-intro">Dark, industrial aesthetic with cold blue tones. Think of a precision-engineered machine: everything is deliberate, sharp, and powerful. The site should feel like Siams RB: reliable, technical, and built for the heat of Zambia.</p>
+
+  <div class="mockup-hero">
+    <div class="mockup-nav">
+      <div class="mockup-logo">SIAMS <span>RB</span></div>
+      <div class="mockup-nav-links">
+        <a href="#">Services</a>
+        <a href="#">Projects</a>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+      </div>
+      <div style="margin-left:16px;background:var(--accent);color:white;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:2px;padding:6px 14px;border-radius:2px;text-transform:uppercase;">24/7 Emergency</div>
+    </div>
+    <div class="mockup-hero-body">
+      <div class="mockup-eyebrow">⚡ Lusaka's #1 Refrigeration &amp; Electrical Specialists</div>
+      <div class="mockup-headline">WE KEEP<br>ZAMBIA <span>COOL</span><br>&amp; POWERED</div>
+      <div class="mockup-p">Expert refrigeration, HVAC, and electrical solutions for homes and industries across Zambia. 10+ years. 5 cities. Zero compromises.</div>
+      <div class="mockup-btns">
+        <button class="mockup-btn-primary">Get a Free Quote</button>
+        <button class="mockup-btn-outline">Our Services</button>
+      </div>
+    </div>
+    <div class="mockup-ticker">
+      <div class="mockup-ticker-item">Cold Room Installation</div>
+      <div class="mockup-ticker-dot"></div>
+      <div class="mockup-ticker-item">Air Conditioning</div>
+      <div class="mockup-ticker-dot"></div>
+      <div class="mockup-ticker-item">Electrical Wiring</div>
+      <div class="mockup-ticker-dot"></div>
+      <div class="mockup-ticker-item">Industrial Refrigeration</div>
+      <div class="mockup-ticker-dot"></div>
+      <div class="mockup-ticker-item">Generator Services</div>
+      <div class="mockup-ticker-dot"></div>
+      <div class="mockup-ticker-item">Emergency Repairs</div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- 03 SITEMAP -->
+<div class="section">
+  <div class="section-tag">03 — Pages &amp; Sitemap</div>
+  <h2 class="section-title">PAGE <span>ARCHITECTURE</span></h2>
+  <p class="section-intro">7 focused pages. Each one serves a purpose — no filler, no fluff. Every page guides visitors toward contacting Siams RB or requesting a quote.</p>
+
+  <div class="pages-grid">
+    <div class="page-card">
+      <div class="page-num">01</div>
+      <div class="page-name">Home</div>
+      <div class="page-desc">The power page. First impression, brand statement, and trust builder. Converts visitors into leads.</div>
+      <ul class="page-sections">
+        <li>Hero — Bold headline + CTA + scrolling service ticker</li>
+        <li>Trust bar — years in business, cities, clients</li>
+        <li>Services overview — 4 core service cards</li>
+        <li>Why Choose Us — 3 key differentiators</li>
+        <li>Featured project / before-after</li>
+        <li>Testimonials slider</li>
+        <li>Emergency callout banner</li>
+        <li>Quick quote form</li>
+      </ul>
+    </div>
+    <div class="page-card">
+      <div class="page-num">02</div>
+      <div class="page-name">Services</div>
+      <div class="page-desc">Detailed breakdown of every service. Each service gets its own section with description, use cases, and a CTA.</div>
+      <ul class="page-sections">
+        <li>Refrigeration (domestic + industrial)</li>
+        <li>Air Conditioning &amp; HVAC</li>
+        <li>Electrical Wiring &amp; Upgrades</li>
+        <li>Cold Room &amp; Freezer Room</li>
+        <li>Generator &amp; Power Backup</li>
+        <li>Engineering &amp; Construction</li>
+        <li>Service &amp; Maintenance Contracts</li>
+      </ul>
+    </div>
+    <div class="page-card">
+      <div class="page-num">03</div>
+      <div class="page-name">Projects</div>
+      <div class="page-desc">A visual portfolio of completed work. Builds credibility with proof. Filter by service type or city.</div>
+      <ul class="page-sections">
+        <li>Filterable project grid (Bootstrap tabs)</li>
+        <li>Project cards with photo + tags</li>
+        <li>Featured project spotlight</li>
+        <li>Client logos / major contract badges</li>
+      </ul>
+    </div>
+    <div class="page-card">
+      <div class="page-num">04</div>
+      <div class="page-name">About</div>
+      <div class="page-desc">Story, values, team, and vision. Humanizes the brand and builds trust with new visitors.</div>
+      <ul class="page-sections">
+        <li>Company story &amp; founding</li>
+        <li>Mission, Vision &amp; Values</li>
+        <li>Team photos + roles</li>
+        <li>Certifications &amp; accreditations</li>
+        <li>Timeline of milestones</li>
+        <li>Locations / coverage map</li>
+      </ul>
+    </div>
+    <div class="page-card">
+      <div class="page-num">05</div>
+      <div class="page-name">Blog / Tips</div>
+      <div class="page-desc">Educational content that builds SEO and positions Siams RB as experts. Helps with Google rankings in Zambia.</div>
+      <ul class="page-sections">
+        <li>Tips for maintaining your AC in Zambia's heat</li>
+        <li>Signs your fridge needs servicing</li>
+        <li>How to protect appliances during load-shedding</li>
+        <li>Cold room sizing guide for businesses</li>
+      </ul>
+    </div>
+    <div class="page-card">
+      <div class="page-num">06</div>
+      <div class="page-name">Contact</div>
+      <div class="page-desc">Make it dead simple to reach the team. Multiple channels, map embed, and a fast quote form.</div>
+      <ul class="page-sections">
+        <li>Quote request form</li>
+        <li>Phone, email, WhatsApp links</li>
+        <li>Google Map embed (Plot 32, Great North Road)</li>
+        <li>Branch locations (Lusaka, Livingstone, Ndola, etc.)</li>
+        <li>Business hours</li>
+      </ul>
+    </div>
+    <div class="page-card">
+      <div class="page-num">07</div>
+      <div class="page-name">Emergency Page</div>
+      <div class="page-desc">A dedicated page for after-hours and emergency calls. Bold, urgent design that loads fast and converts.</div>
+      <ul class="page-sections">
+        <li>Large emergency phone number</li>
+        <li>WhatsApp direct link</li>
+        <li>Service availability status</li>
+        <li>Simple form: name + issue + location</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- 04 HOME PAGE BREAKDOWN -->
+<div class="section">
+  <div class="section-tag">04 — Section Deep Dive</div>
+  <h2 class="section-title">HOME PAGE <span>BREAKDOWN</span></h2>
+  <p class="section-intro">The home page is where you win or lose visitors. Here is every section with exact content direction.</p>
+
+  <div class="hero-section-breakdown">
+    <div class="breakdown-item">
+      <div class="breakdown-label">🚀 Hero Section</div>
+      <div class="breakdown-detail">
+        <strong style="color:#1A2E20">Headline:</strong> "WE KEEP ZAMBIA COOL &amp; POWERED"<br>
+        <strong style="color:#1A2E20">Subtext:</strong> Expert refrigeration, HVAC, and electrical solutions for homes &amp; industries across Zambia. 10+ years · 5 cities · Zero compromises.<br>
+        <strong style="color:#1A2E20">CTA Buttons:</strong> "Get a Free Quote" (primary, cyan) + "View Our Services" (outline)<br>
+        <strong style="color:#1A2E20">Visual:</strong> Dark background with frost/cold-room imagery or abstract cool gradients. Service names scrolling in a ticker strip below.
+      </div>
+    </div>
+    <div class="breakdown-item">
+      <div class="breakdown-label">📊 Trust Bar</div>
+      <div class="breakdown-detail">
+        <strong style="color:#1A2E20">4 stat counters (animated on scroll):</strong><br>
+        🔢 10+ Years in Business · 500+ Projects Completed · 5 Cities Served · 100+ Happy Clients<br>
+        <strong style="color:#1A2E20">Style:</strong> Dark strip with large Bebas Neue numbers in Voltage Gold, labels in small caps below.
+      </div>
+    </div>
+    <div class="breakdown-item">
+      <div class="breakdown-label">🔧 Services Grid</div>
+      <div class="breakdown-detail">
+        <strong style="color:#1A2E20">4 cards in a Bootstrap grid (col-md-3):</strong><br>
+        ❄️ Refrigeration · 🌬️ Air Conditioning / HVAC · ⚡ Electrical · 🏗️ Engineering &amp; Construction<br>
+        Each card: Icon · Service name · 1-line description · "Learn More →" link<br>
+        <strong style="color:#1A2E20">Style:</strong> Dark cards with a glowing cyan border on hover.
+      </div>
+    </div>
+    <div class="breakdown-item">
+      <div class="breakdown-label">✅ Why Choose Us</div>
+      <div class="breakdown-detail">
+        <strong style="color:#1A2E20">3 Columns with icons:</strong><br>
+        🏆 <strong style="color:#1A2E20">10+ Years Experience</strong> — Trusted by Zambia's leading housing developers and on their closed tender lists.<br>
+        🔒 <strong style="color:#1A2E20">Service Contracts Available</strong> — We don't disappear after installation. We're your long-term partner.<br>
+        🌍 <strong style="color:#1A2E20">Nationwide Coverage</strong> — Lusaka, Livingstone, Ndola, Mufulira, Solwezi. Wherever you are, we're there.
+      </div>
+    </div>
+    <div class="breakdown-item">
+      <div class="breakdown-label">💬 Testimonials</div>
+      <div class="breakdown-detail">
+        <strong style="color:#1A2E20">Bootstrap carousel / slider:</strong> 3–5 client quotes with name, company, service used.<br>
+        <strong style="color:#1A2E20">Sample copy:</strong> "SIAMS RB installed our cold room on time and on budget. Their team was professional and knew exactly what we needed." — Commercial Client, Lusaka<br>
+        <strong style="color:#1A2E20">Note:</strong> Gather 3–5 real testimonials before launch. Include a star rating (5★).
+      </div>
+    </div>
+    <div class="breakdown-item">
+      <div class="breakdown-label">🚨 Emergency Banner</div>
+      <div class="breakdown-detail">
+        <strong style="color:#1A2E20">Full-width strip in Emergency Red:</strong><br>
+        "Fridge broken? Power out? AC failure?" → <strong style="color:#1A2E20">Call us NOW: +260 977 778 465</strong> [Call Button] [WhatsApp Button]<br>
+        <strong style="color:#1A2E20">Position:</strong> Sticky at top on mobile, inline section on desktop.
+      </div>
+    </div>
+    <div class="breakdown-item">
+      <div class="breakdown-label">📬 Quick Quote Form</div>
+      <div class="breakdown-detail">
+        <strong style="color:#1A2E20">Fields:</strong> Name · Phone / WhatsApp · Service needed (dropdown) · City · Brief description<br>
+        <strong style="color:#1A2E20">CTA Button:</strong> "Send My Request" in cyan<br>
+        <strong style="color:#1A2E20">Layout:</strong> Split section — left side: form. Right side: contact details + map pin.
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- 05 SERVICES CONTENT -->
+<div class="section">
+  <div class="section-tag">05 — Services Content</div>
+  <h2 class="section-title">WHAT <span>TO WRITE</span></h2>
+  <p class="section-intro">Every service needs compelling, clear copy. Here is the content framework for each service page/section.</p>
+
+  <div class="services-preview">
+    <div class="svc-cell"><div class="svc-icon">❄️</div><div class="svc-name">Refrigeration</div></div>
+    <div class="svc-cell"><div class="svc-icon">🌬️</div><div class="svc-name">HVAC / AC</div></div>
+    <div class="svc-cell"><div class="svc-icon">⚡</div><div class="svc-name">Electrical</div></div>
+    <div class="svc-cell"><div class="svc-icon">🏗️</div><div class="svc-name">Engineering</div></div>
+  </div>
+
+  <table class="content-table">
+    <tr>
+      <th>Service</th>
+      <th>Headline</th>
+      <th>Key Points to Cover</th>
+      <th>Audience</th>
+    </tr>
+    <tr>
+      <td>Refrigeration</td>
+      <td>"From the Corner Fridge to the Largest Cold Room"</td>
+      <td>Domestic fridges, commercial fridges, cold rooms, freezer rooms, new install, repair &amp; servicing. All major brands.</td>
+      <td>Homes, supermarkets, restaurants, farms</td>
+    </tr>
+    <tr>
+      <td>HVAC / AC</td>
+      <td>"Cool Spaces. Comfortable Lives."</td>
+      <td>Split AC units, ducted systems, industrial ventilation, new installations, repairs, scheduled servicing. Domestic &amp; industrial.</td>
+      <td>Homes, offices, factories, hospitals</td>
+    </tr>
+    <tr>
+      <td>Electrical</td>
+      <td>"Wired for Safety. Built to Code."</td>
+      <td>New house wiring, electrical upgrades to new standards, DB board upgrades, fault finding, load-shedding &amp; generator wiring.</td>
+      <td>Home builders, property developers, businesses</td>
+    </tr>
+    <tr>
+      <td>Cold Rooms</td>
+      <td>"Custom Cold Storage Solutions for Zambia"</td>
+      <td>Design, supply, installation of cold rooms and freezer rooms for any size. Walk-in cold rooms for butcheries, pharmacies, farms.</td>
+      <td>Butcheries, pharmacies, farms, supermarkets</td>
+    </tr>
+    <tr>
+      <td>Generator / Power</td>
+      <td>"Never Go Dark Again"</td>
+      <td>Generator installation, automatic transfer switches, solar &amp; inverter integration. Built for Zambia's load-shedding reality.</td>
+      <td>Businesses, residential estates, clinics</td>
+    </tr>
+    <tr>
+      <td>Service Contracts</td>
+      <td>"We're Your Long-Term Partner"</td>
+      <td>Scheduled maintenance contracts for businesses. Priority response. Includes regular servicing + emergency callouts.</td>
+      <td>Businesses, property managers, institutions</td>
+    </tr>
+  </table>
+</div>
+
+<hr class="section-divider">
+
+<!-- 06 FEATURES -->
+<div class="section">
+  <div class="section-tag">06 — Features &amp; Functionality</div>
+  <h2 class="section-title">MUST-HAVE <span>FEATURES</span></h2>
+  <p class="section-intro">These features will separate Siams RB from every competitor in Zambia with a website.</p>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">📱</div>
+      <div class="feature-title">WhatsApp Integration <span class="tag-pill tag-must">Must Have</span></div>
+      <div class="feature-desc">Floating WhatsApp button on every page. In Zambia, WhatsApp is the #1 communication tool. Make it one tap to contact the team.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🚨</div>
+      <div class="feature-title">Emergency Call Banner <span class="tag-pill tag-must">Must Have</span></div>
+      <div class="feature-desc">Sticky top bar on mobile with phone number. When a fridge breaks at 11pm, the number needs to be visible instantly.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📍</div>
+      <div class="feature-title">Google Map Embed <span class="tag-pill tag-must">Must Have</span></div>
+      <div class="feature-desc">Embedded Google Map on Contact page showing Plot 32, Great North Road. Builds trust and helps local SEO in Lusaka.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <div class="feature-title">Animated Stat Counters <span class="tag-pill tag-must">Must Have</span></div>
+      <div class="feature-desc">Numbers that count up when scrolled to: years, projects, cities, clients. Adds dynamism and communicates experience instantly.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🖼️</div>
+      <div class="feature-title">Project Gallery <span class="tag-pill tag-must">Must Have</span></div>
+      <div class="feature-desc">Before &amp; after photos, cold room installs, AC units. Real photos = real proof. Filterable by service type using Bootstrap tabs.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📋</div>
+      <div class="feature-title">Quote Request Form <span class="tag-pill tag-must">Must Have</span></div>
+      <div class="feature-desc">Simple form: Name, Phone, Service, City, Description. Sends email to info@siamsrb.com. The single most important conversion tool.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⭐</div>
+      <div class="feature-title">Testimonials Carousel <span class="tag-pill tag-must">Must Have</span></div>
+      <div class="feature-desc">Bootstrap carousel with client testimonials. Social proof is the #1 trust signal for service businesses in Zambia.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📰</div>
+      <div class="feature-title">Blog / Tips Section <span class="tag-pill tag-nice">Nice to Have</span></div>
+      <div class="feature-desc">3–5 helpful articles targeting "AC repair Lusaka", "cold room installation Zambia" etc. Long-term SEO strategy.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🌙</div>
+      <div class="feature-title">Load-Shedding Tip Widget <span class="tag-pill tag-nice">Nice to Have</span></div>
+      <div class="feature-desc">A small banner or tooltip reminding visitors to protect appliances during load-shedding — unique to Zambia, builds relevance.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🏙️</div>
+      <div class="feature-title">City Pages <span class="tag-pill tag-nice">Nice to Have</span></div>
+      <div class="feature-desc">Separate landing pages for Lusaka, Ndola, Livingstone, Solwezi, Mufulira. Massive for local Google search rankings.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔍</div>
+      <div class="feature-title">SEO Metadata <span class="tag-pill tag-must">Must Have</span></div>
+      <div class="feature-desc">Every page needs a unique title tag, meta description, and OG image. Target: "refrigeration repair Lusaka", "AC installation Zambia".</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📱</div>
+      <div class="feature-title">Mobile-First Design <span class="tag-pill tag-must">Must Have</span></div>
+      <div class="feature-desc">Majority of Zambia's internet users are on mobile. Bootstrap's grid handles this — but test on real phones before launching.</div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- 07 TONE & MESSAGING -->
+<div class="section">
+  <div class="section-tag">07 — Tone &amp; Messaging</div>
+  <h2 class="section-title">VOICE &amp; <span>COPY GUIDE</span></h2>
+  <p class="section-intro">How Siams RB should sound. Consistent tone across every page builds a professional brand.</p>
+
+  <div class="hero-section-breakdown">
+    <div class="breakdown-item">
+      <div class="breakdown-label">Brand Voice</div>
+      <div class="breakdown-detail">
+        <strong style="color:#1A2E20">Confident, not arrogant.</strong> Expert, not technical jargon. Warm but professional. Local (Zambia-specific references) but world-class quality.<br><br>
+        ✅ "We've been keeping Zambia cool for over 10 years."<br>
+        ❌ "We provide HVAC installation and maintenance services with ISO compliance."
+      </div>
+    </div>
+    <div class="breakdown-item">
+      <div class="breakdown-label">Key Messages</div>
+      <div class="breakdown-detail">
+        1. <strong style="color:#1A2E20">We're the most experienced</strong> — 10+ years, major housing developers, service contracts.<br>
+        2. <strong style="color:#1A2E20">We cover all of Zambia</strong> — 5 cities, not just Lusaka.<br>
+        3. <strong style="color:#1A2E20">We're there when it matters</strong> — Emergency services, power backup expertise, load-shedding solutions.<br>
+        4. <strong style="color:#1A2E20">We do it right</strong> — Meet standards, quality performance, "risk-free" reputation.
+      </div>
+    </div>
+    <div class="breakdown-item">
+      <div class="breakdown-label">Call-to-Action Copy</div>
+      <div class="breakdown-detail">
+        Primary CTA: <strong style="color:#1A2E20">"Get a Free Quote"</strong><br>
+        Secondary CTA: <strong style="color:#1A2E20">"Call Us Now"</strong> / <strong style="color:#1A2E20">"WhatsApp Us"</strong><br>
+        Emergency CTA: <strong style="color:#1A2E20">"Call +260 977 778 465"</strong><br>
+        Soft CTA: <strong style="color:#1A2E20">"See Our Projects"</strong> / <strong style="color:#1A2E20">"Learn More"</strong>
+      </div>
+    </div>
+    <div class="breakdown-item">
+      <div class="breakdown-label">Zambia-Specific Hooks</div>
+      <div class="breakdown-detail">
+        Reference real local pain points to connect with visitors:<br>
+        ⚡ <strong style="color:#1A2E20">Load-shedding</strong> → Generator &amp; inverter solutions<br>
+        🌡️ <strong style="color:#1A2E20">Lusaka's heat</strong> → AC &amp; ventilation urgency<br>
+        🥩 <strong style="color:#1A2E20">Butcheries &amp; farms</strong> → Cold room installations<br>
+        🏠 <strong style="color:#1A2E20">New housing developments</strong> → Electrical wiring services
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- 08 LAUNCH CHECKLIST -->
+<div class="section">
+  <div class="section-tag">08 — Launch Checklist</div>
+  <h2 class="section-title">BEFORE YOU <span>GO LIVE</span></h2>
+  <p class="section-intro">Non-negotiables before uploading to cPanel.</p>
+
+  <table class="content-table">
+    <tr>
+      <th>Item</th>
+      <th>Details</th>
+      <th>Priority</th>
+    </tr>
+    <tr>
+      <td>Real Photos</td>
+      <td>Get actual photos of completed projects, team members, equipment. No stock photos of white guys in hard hats.</td>
+      <td><span class="tag-pill tag-must">Critical</span></td>
+    </tr>
+    <tr>
+      <td>Google Business Profile</td>
+      <td>Create/claim the Google Business listing for Siams RB. Links to Maps embed. Drives local search traffic.</td>
+      <td><span class="tag-pill tag-must">Critical</span></td>
+    </tr>
+    <tr>
+      <td>3–5 Testimonials</td>
+      <td>Collect real client quotes. Name + company + service used. Even WhatsApp screenshots work as a start.</td>
+      <td><span class="tag-pill tag-must">Critical</span></td>
+    </tr>
+    <tr>
+      <td>Contact Form Works</td>
+      <td>Test the quote form sends email to info@siamsrb.com. Use a PHP mailer or formspree.io on cPanel.</td>
+      <td><span class="tag-pill tag-must">Critical</span></td>
+    </tr>
+    <tr>
+      <td>SSL Certificate</td>
+      <td>Enable free SSL via cPanel (Let's Encrypt). HTTPS is required for trust and Google ranking.</td>
+      <td><span class="tag-pill tag-must">Critical</span></td>
+    </tr>
+    <tr>
+      <td>Mobile Test</td>
+      <td>Test on an actual Android phone (Chrome). Check the WhatsApp button, phone links, and form usability.</td>
+      <td><span class="tag-pill tag-must">Critical</span></td>
+    </tr>
+    <tr>
+      <td>Google Analytics</td>
+      <td>Add GA4 tracking code to see where visitors come from and which pages convert.</td>
+      <td><span class="tag-pill tag-nice">Recommended</span></td>
+    </tr>
+    <tr>
+      <td>Page Speed</td>
+      <td>Compress all images (use TinyPNG). Target under 3 second load on mobile. Zambia's mobile data can be slow.</td>
+      <td><span class="tag-pill tag-nice">Recommended</span></td>
+    </tr>
+  </table>
+</div>
+
+<div class="plan-footer">
+  <div class="plan-footer-title">SIAMS RB — WEBSITE MASTER PLAN</div>
+  <div class="plan-footer-sub">Prepared for siamsrb.com · Plot 32, Great North Road, S.O.S, Lusaka, Zambia · info@siamsrb.com</div>
+  <div style="margin-top:20px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.2);">Bootstrap · cPanel · Zambia's #1 Refrigeration &amp; Electrical Company</div>
+</div>
+
+</body>
+</html>
